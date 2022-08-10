@@ -1,12 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --purple: #9c27b0;
   --black: #000000;
   --white: #ffffff;
+  --orange: #cc6e02;
 }
 body {
-  margin: 0;
-  padding: 0;
-  width:100vw;
+  overflow: hidden;
+  font-family: 'Itim', cursive !important;
   box-sizing: border-box;
   /* background-color: var(--purple); */
 }
@@ -16,10 +25,10 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-.resultContainer{
-  padding:5% 0 5% 0;
+.resultContainer {
+  padding: 5% 0 5% 0;
 }
-.container{
+.container {
   background-color: var(--white);
   height: 100%;
   width: 100%;
@@ -30,11 +39,12 @@ body {
   margin: 0.3em;
 }
 #start {
-  width: 90%;
   border-radius: 0.5rem;
-  padding: 0.8rem 1.5rem;
+  padding: 1em 1.5em;
   font-size: 120%;
   border: none;
+  /* For everything that is supposed to be clicked the cursor shuld be pointer */
+  cursor: pointer;
 }
 #hand {
   height: 330px;
@@ -47,112 +57,123 @@ a {
   color: black;
 }
 .start-container {
-  /* background-color: var(--white); */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding-top: 1em;
 }
 #title {
-  height:80px;
-  
+  height: 80px;
 }
 .sub-heading {
   font-size: 300%;
-
 }
 .rpsButton {
   background-color: var(--purple);
-  border: none;
   border-radius: 50%;
-  height: 30%;
-  width: 25%;
-  object-fit: contain;
+  cursor: pointer;
+  border: none;
 }
+
 .button-img {
-  height: 50%;
-  width: 70%;
+  width: 65%;
+  cursor: pointer;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
-  width: 50%;
+  width: 45%;
   gap: 5%;
   margin-top: 2%;
 }
 
 /* Current image display */
-#userCurrentIcon{
-  transform: rotateZ(90deg);
-}
-
 
 .imgtemp {
-  /* position: absolute; */
-  /* top: 50%; */
-  /* padding: 0 3% 0 3%; */
   display: flex;
-  /* flex-direction:column; */
-  gap:10%;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-around;
   align-items: center;
+  text-align: center;
   width: 100%;
- 
 }
+#userCurrentIcon {
+  transform: rotateZ(90deg);
+  position: relative;
+  left: -180%;
+}
+.userAnim {
+  animation: user 0.3s ease-in-out forwards;
+}
+
 #computerCurrentIcon {
   transform: rotate(-90deg);
+  position: relative;
+  right: -200%;
+}
+.compAnim {
+  animation: comp 0.3s ease-in-out forwards;
 }
 
-#result{
+@keyframes user {
+  from {
+    left: -180%;
+  }
+  to {
+    left: 0%;
+  }
+}
+@keyframes comp {
+  from {
+    right: -200%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+#result {
   font-size: 190%;
-  color:#cc6e02;
+  color: var(--orange);
 }
-#player-score{
-  font-size:110%;
-  color:rgb(30, 107, 208) ;
-}
-
-.sub-section{
-  font-size:220%;
+#player-score {
+  font-size: 110%;
+  color: rgb(30, 107, 208);
 }
 
+.sub-section {
+  font-size: 220%;
+}
 
-.end-container{
+.end-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
-.container{
+.container {
   display: flex;
   flex-direction: column;
-  gap:2em;
+  gap: 2em;
 }
 
-#endGameButton{
-  margin:2%;
-  padding: 0.5% 3%;
+#endGameButton {
+  margin: 2%;
+  padding: 0.5em 1em;
   border-radius: 0.5em;
   font-size: large;
-  font-weight: 700;
-  ]
-  display:none;
-  /* background-color: rgb(243, 217, 186); */
- 
-  /*color:rgb(33, 83, 235);*/
-  color:rgb(203, 25, 25);
-   border: 2.5px solid  black ;
-}
-.currentImg{
-  /* height:18%; */
-  width:100%;
-  margin:0;
-}
-.side-container{
+  font-weight: 550;
   display: none;
-  
-}
+  cursor: pointer;
 
+  border: 2px solid black;
+  font-family: 'Itim', cursive !important;
+}
+.currentImg {
+  width: 85%;
+  margin: 0;
+}
+.side-container {
+  display: none;
+}
